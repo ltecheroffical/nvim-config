@@ -3,10 +3,19 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-       "clangd",
-        "codelldb"
+        -- Languauge Servers 
+        "clangd",
+        "python-lsp-server",
+        "gopls",
+
+        -- Debuggers
+        "codelldb",
       }
     }
+  },
+  -- Search
+  {
+    "natecraddock/nvim-find"
   },
   -- LSP Server
   {

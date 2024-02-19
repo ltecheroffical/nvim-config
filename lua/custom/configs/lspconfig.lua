@@ -11,3 +11,6 @@ lspconfig.clangd.setup {
   end,
   capabilities = capabilities,
 }
+
+lspconfig.pylsp.setup {}
+lspconfig.gopls.setup({})
