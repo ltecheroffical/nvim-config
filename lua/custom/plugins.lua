@@ -7,15 +7,12 @@ local plugins = {
         "clangd",
         "python-lsp-server",
         "gopls",
+        "cmake-language-server",
 
         -- Debuggers
         "codelldb",
       }
     }
-  },
-  -- Search
-  {
-    "natecraddock/nvim-find"
   },
   -- LSP Server
   {

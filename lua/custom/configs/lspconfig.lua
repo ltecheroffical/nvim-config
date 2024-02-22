@@ -13,4 +13,7 @@ lspconfig.clangd.setup {
 }
 
 lspconfig.pylsp.setup {}
+
 lspconfig.gopls.setup({})
+
+lspconfig.cmake.setup {}
