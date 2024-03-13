@@ -12,8 +12,10 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
 }
 
-lspconfig.pylsp.setup {}
+lspconfig.pyright.setup {}
 
 lspconfig.gopls.setup({})
 
 lspconfig.cmake.setup {}
+
+lspconfig.tsserver.setup {}

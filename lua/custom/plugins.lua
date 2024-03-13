@@ -5,9 +5,10 @@ local plugins = {
       ensure_installed = {
         -- Languauge Servers 
         "clangd",
-        "python-lsp-server",
+        "pyright",
         "gopls",
         "cmake-language-server",
+        "typescript-language-server",
 
         -- Debuggers
         "codelldb",
