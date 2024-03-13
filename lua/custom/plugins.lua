@@ -30,6 +30,10 @@ local plugins = {
     end
   },
   {
+    'Exafunction/codeium.vim',
+    event = 'BufEnter'
+  },
+  {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
     dependencies = {
