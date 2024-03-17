@@ -19,3 +19,5 @@ lspconfig.gopls.setup({})
 lspconfig.cmake.setup {}
 
 lspconfig.tsserver.setup {}
+
+lspconfig.htmx.setup {}

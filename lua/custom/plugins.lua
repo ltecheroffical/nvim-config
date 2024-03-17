@@ -9,6 +9,8 @@ local plugins = {
         "gopls",
         "cmake-language-server",
         "typescript-language-server",
+        "lua-language-server",
+        "htmx-lsp",
 
         -- Debuggers
         "codelldb",
