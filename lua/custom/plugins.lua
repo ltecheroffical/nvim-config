@@ -69,6 +69,11 @@ local plugins = {
         dapui.close()
       end
     end,
+  },
+  -- Tmux
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
   }
 }
 
