@@ -10,6 +10,8 @@ lspconfig.clangd.setup {
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
+  -- Disable auto header insertion
+  cmd = { "clangd", "--header-insertion=never" },
 }
 
 lspconfig.pyright.setup {}
@@ -21,3 +23,5 @@ lspconfig.cmake.setup {}
 lspconfig.tsserver.setup {}
 
 lspconfig.htmx.setup {}
+
+lspconfig.jdtls.setup { cmd = { 'jdtls' } }

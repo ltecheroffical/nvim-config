@@ -25,6 +25,10 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+  {
+    "OmniSharp/omnisharp-vim",
+    lazy = false,
+  },
   -- Debugger
   {
     "mfussenegger/nvim-dap",
@@ -49,6 +53,10 @@ local plugins = {
         "codelldb"
       }
     }
+  },
+  {
+    "nvim-neotest/nvim-nio",
+    lazy = false,
   },
   {
     "rcarriga/nvim-dap-ui",
