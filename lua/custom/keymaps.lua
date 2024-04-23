@@ -23,6 +23,9 @@ M.dap = {
   }
 }
 
+-- Lsp
+vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 
 -- Terminal Build and Run
 vim.api.nvim_set_keymap('n', '<S-C-b>', [[:!sh build_project.sh<CR>]], { noremap = true, silent = true })
@@ -47,6 +50,7 @@ vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, {
 vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+vim.keymap.set('n', '<c-x>', function() return vim.fn['codeium#Chat']() end, { expr = true, silent = true })
 vim.keymap.set('n', '<c-o>', function() return vim.fn['codeium#Chat']() end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-space>', function() return vim.fn['codeium#Complete']() end, { expr = true, silent = true })
 
