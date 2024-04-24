@@ -45,7 +45,6 @@ vim.api.nvim_set_keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { noremap = true, s
 vim.api.nvim_set_keymap("v", "<A-Down>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- Codeium
-vim.g.codeium_disable_bindings = 1
 vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })

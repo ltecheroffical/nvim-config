@@ -38,7 +38,15 @@ local plugins = {
   },
   {
     'Exafunction/codeium.vim',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      vim.g.codeium_disable_bindings = 1
+
+      -- Disable for specific filetypes
+      vim.g.codeium_filetypes = {
+        text = false,
+      }
+    end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
