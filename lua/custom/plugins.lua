@@ -90,7 +90,12 @@ local plugins = {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
-  }
+  },
+  -- Git
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
 }
 
 return plugins

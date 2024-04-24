@@ -1,5 +1,14 @@
 local M = {}
 
+-- Disabled
+M.disabled = {
+  n = {
+    ["<leader>gt"] = "",
+    ["<leader>gb"] = "",
+  }
+}
+
+-- Tmux
 M.general = {
   n = {
     ["<C-h>"] = { "<cmd> TmuxNavigateLeft <CR>", "Tmux Navigate Left" },
@@ -9,6 +18,7 @@ M.general = {
   }
 }
 
+-- DAP
 M.dap = {
   plugin = true,
   n = {
@@ -23,18 +33,82 @@ M.dap = {
   }
 }
 
--- Lsp
-vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+M.lspconfig = {
+  plugin = true,
+  n = {
+    ["<leader>gD"] = {
+      "<cmd>lua vim.lsp.buf.declaration()<CR>",
+      "Go to declaration",
+    },
+    ["<leader>gd"] = {
+      "<cmd>lua vim.lsp.buf.definition()<CR>",
+      "Go to definition",
+    }
+  }
+}
 
--- Terminal Build and Run
-vim.api.nvim_set_keymap('n', '<S-C-b>', [[:!sh build_project.sh<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-b>', [[:split term://sh build_project.sh<CR>]], { noremap = true, silent = true })
+-- Git
+M.git = {
+  n = {
+    ["<leader>gg"] = {
+      function()
+        vim.ui.input({ prompt = "git " }, function(input)
+          vim.cmd("Git " .. input)
+        end)
+      end,
+      "Git",
+    },
+    ["<leader>gs"] = {
+      "<cmd> Git status <CR>",
+      "Git status",
+    },
+    ["<leader>gl"] = {
+      "<cmd> Git log <CR>",
+      "Git log",
+    },
+    ["<leader>gb"] = {
+      "<cmd> Git blame <CR>",
+      "Git blame",
+    },
+    ["<leader>gc"] = {
+      function()
+        vim.ui.input({ prompt = "Commit message: " }, function(input)
+          vim.cmd("Git add -A")
+          vim.cmd("Git commit -m \"" .. input .. "\"")
+        end)
+      end,
+      "Git commit",
+    },
+    ["<leader>gp"] = {
+      "<cmd> Git push <CR>",
+      "Git push",
+    },
+  }
+}
 
--- Codeium Config
-vim.api.nvim_set_keymap('n', '<F5>', [[:!sh run_project.sh<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-C-r>', [[:split term://sh run_project.sh<CR>]], { noremap = true, silent = true })
+-- Project
+M.project = {
+  n = {
+    ["<S-C-b>"] = {
+      ":!sh build_project.sh<CR>",
+      "Build Project",
+    },
+    ["<F5>"] = {
+      ":!sh run_project.sh<CR>",
+      "Run Project",
+    }
+  }
+}
 
+-- NvChad
+M.nvchad = {
+  n = {
+    ["<leader>rc"] = {
+      ":luafile ~/.config/nvim/init.lua<CR>",
+      "Reload config",
+    },
+  }
+}
 
 -- Move Lines
 vim.api.nvim_set_keymap("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
@@ -49,7 +123,6 @@ vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, {
 vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
-vim.keymap.set('n', '<c-o>', function() return vim.fn['codeium#Chat']() end, { expr = true, silent = true })
 vim.keymap.set('i', '<c-space>', function() return vim.fn['codeium#Complete']() end, { expr = true, silent = true })
 
 return M
