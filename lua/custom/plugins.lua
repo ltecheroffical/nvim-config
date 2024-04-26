@@ -12,6 +12,9 @@ local plugins = {
         "lua-language-server",
         "htmx-lsp",
 
+        -- Linting
+        "sonarlint-language-server",
+
         -- Debuggers
         "codelldb",
       }
@@ -96,6 +99,12 @@ local plugins = {
     "tpope/vim-fugitive",
     lazy = false,
   },
+  -- Linting
+  {
+    "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+    lazy = false,
+  }
+
 }
 
 return plugins
