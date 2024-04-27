@@ -24,7 +24,7 @@ lspconfig.tsserver.setup {}
 
 lspconfig.htmx.setup {}
 
-lspconfig.jdtls.setup { cmd = { 'jdtls' } }
+lspconfig.jdtls.setup({})
 
 require("sonarlint").setup({
   server = {
@@ -40,9 +40,9 @@ require("sonarlint").setup({
     }
   },
   filetypes = {
-    -- Tested and working
     'python',
     'cpp',
+    'c',
   }
 })
 

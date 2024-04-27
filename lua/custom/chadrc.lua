@@ -2,6 +2,6 @@
 local M = {}
 require("custom.nvim")
 M.ui = { theme = 'catppuccin' }
-M.plugins = "custom.plugins"
 M.mappings = require("custom.keymaps")
+M.plugins = "custom.plugins"
 return M
