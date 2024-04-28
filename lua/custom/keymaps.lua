@@ -110,13 +110,27 @@ M.nvchad = {
   }
 }
 
--- Move Lines
-vim.api.nvim_set_keymap("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-Up>", ":m .-2<CR>==", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<A-Up>", "<Esc>:m .+1<CR>==gi", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<A-Down>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+-- Line movement
+M.line_movement = {
+  n = {
+    ["<A-Up>"] = {
+      ":m .-2<CR>==",
+      "Move line up",
+    },
+    ["<A-Down>"] = {
+      ":m .+1<CR>==",
+      "Move line down",
+    },
+  },
+  i = {
+    ["<A-Up>"] = {
+      "<Esc>:m .-2<CR>==gi",
+    },
+    ["<A-Down>"] = {
+      "<Esc>:m .+1<CR>==gi",
+    }
+  }
+}
 
 -- Codeium
 vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
