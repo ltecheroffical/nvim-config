@@ -17,6 +17,7 @@ local plugins = {
 
         -- Debuggers
         "codelldb",
+        "debugpy"
       }
     }
   },
@@ -40,34 +41,16 @@ local plugins = {
     end
   },
   {
-    'Exafunction/codeium.vim',
-    event = 'BufEnter',
-    config = function()
-      vim.g.codeium_disable_bindings = 1
-
-      -- Disable for specific filetypes
-      vim.g.codeium_filetypes = {
-        text = false,
-      }
-    end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
     dependencies = {
-      "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
     },
-    opts = {
-      handlers = {},
-      ensure_installed = {
-        "codelldb"
-      }
-    }
-  },
-  {
-    "nvim-neotest/nvim-nio",
-    lazy = false,
+    config = function()
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
+    end
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -88,6 +71,38 @@ local plugins = {
         dapui.close()
       end
     end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+      ensure_installed = {
+        "codelldb"
+      }
+    }
+  },
+  -- Codeium
+  {
+    'Exafunction/codeium.vim',
+    event = 'BufEnter',
+    config = function()
+      vim.g.codeium_disable_bindings = 1
+
+      -- Disable for specific filetypes
+      vim.g.codeium_filetypes = {
+        text = false,
+      }
+    end,
+  },
+  -- Async
+  {
+    "nvim-neotest/nvim-nio",
+    lazy = false,
   },
   -- Tmux
   {

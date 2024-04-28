@@ -29,10 +29,22 @@ M.dap = {
     ["<leader>dr"] = {
       "<cmd> DapContinue <CR>",
       "Start or continue the debugger",
+    },
+  }
+}
+
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<leader>dbr"] = {
+      function()
+        require("dap-python").test_method()
+      end
     }
   }
 }
 
+-- LSP
 M.lspconfig = {
   plugin = true,
   n = {
