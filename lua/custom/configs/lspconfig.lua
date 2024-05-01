@@ -43,6 +43,14 @@ require("sonarlint").setup({
     'python',
     'cpp',
     'c',
+  },
+  settings = {
+    sonarlint = {
+      rules = {
+        -- C++ rules
+        ["cpp:S6004"] = { level = 'on' } -- Use the init statement to declare "X" inside the if statement
+      }
+    }
   }
 })
 

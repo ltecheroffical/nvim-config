@@ -112,7 +112,7 @@ local plugins = {
   -- Git
   {
     "tpope/vim-fugitive",
-    lazy = false,
+    event = "VeryLazy",
   },
   -- Linting
   {
