@@ -101,6 +101,10 @@ M.git = {
 -- Project
 M.project = {
   n = {
+    ["<C-b>"] = {
+      ":!sh build_project.sh<CR>",
+      "Build Project",
+    },
     ["<S-C-b>"] = {
       ":!sh build_project.sh<CR>",
       "Build Project",
