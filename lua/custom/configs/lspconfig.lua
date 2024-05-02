@@ -14,43 +14,19 @@ lspconfig.clangd.setup {
   cmd = { "clangd", "--header-insertion=never" },
 }
 
-lspconfig.pyright.setup {}
+lspconfig.pyright.setup{}
 
 lspconfig.gopls.setup({})
 
-lspconfig.cmake.setup {}
+lspconfig.cmake.setup{}
 
-lspconfig.tsserver.setup {}
+lspconfig.tsserver.setup{}
 
-lspconfig.htmx.setup {}
+lspconfig.htmx.setup{}
 
 lspconfig.jdtls.setup({})
 
-require("sonarlint").setup({
-  server = {
-    cmd = {
-     'sonarlint-language-server',
-     -- Ensure that sonarlint-language-server uses stdio channel
-     '-stdio',
-     '-analyzers',
-     -- paths to the analyzers you need, using those for python and java in this example
-     vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
-     vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
-     vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
-    }
-  },
-  filetypes = {
-    'python',
-    'cpp',
-    'c',
-  },
-  settings = {
-    sonarlint = {
-      rules = {
-        -- C++ rules
-        ["cpp:S6004"] = { level = 'on' } -- Use the init statement to declare "X" inside the if statement
-      }
-    }
-  }
-})
+require("sonarlint").setup(
+  require("custom.configs.sonarconfig")
+)
 
