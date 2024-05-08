@@ -10,23 +10,25 @@ lspconfig.clangd.setup {
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
-  -- Disable auto header insertion
+  -- Disable auto heade r insertion
   cmd = { "clangd", "--header-insertion=never" },
 }
+lspconfig.cmake.setup {}
 
-lspconfig.pyright.setup{}
+lspconfig.pyright.setup {}
 
 lspconfig.gopls.setup({})
 
-lspconfig.cmake.setup{}
 
-lspconfig.tsserver.setup{}
+lspconfig.tsserver.setup {}
 
-lspconfig.htmx.setup{}
+lspconfig.htmx.setup {}
 
 lspconfig.jdtls.setup({})
 
-require("sonarlint").setup(
-  require("custom.configs.sonarconfig")
-)
-
+-- Enable only if we have 'compile_commands.json' in the cwd
+if vim.fn.filereadable("compile_commands.json") == 1 then
+  require("sonarlint").setup(
+    require("custom.configs.sonarconfig")
+  )
+end
