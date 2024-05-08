@@ -25,10 +25,3 @@ lspconfig.tsserver.setup {}
 lspconfig.htmx.setup {}
 
 lspconfig.jdtls.setup({})
-
--- Enable only if we have 'compile_commands.json' in the cwd
-if vim.fn.filereadable("compile_commands.json") == 1 then
-  require("sonarlint").setup(
-    require("custom.configs.sonarconfig")
-  )
-end
