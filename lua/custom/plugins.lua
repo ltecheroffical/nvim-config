@@ -24,6 +24,7 @@ local plugins = {
   -- LSP Server
   {
     "neovim/nvim-lspconfig",
+    event = "BufReadPre",
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -31,11 +32,12 @@ local plugins = {
   },
   {
     "OmniSharp/omnisharp-vim",
-    lazy = false,
+    event = "BufEnter",
   },
   -- Debugger
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
     config = function(_, _)
       require("core.utils").load_mappings("dap")
     end
@@ -50,6 +52,7 @@ local plugins = {
     config = function()
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
+      require("core.utils").load_mappings("dap_python")
     end
   },
   {
@@ -82,7 +85,7 @@ local plugins = {
     opts = {
       handlers = {},
       ensure_installed = {
-        "codelldb"
+        "lldb"
       }
     }
   },
@@ -116,13 +119,10 @@ local plugins = {
   {
     "tpope/vim-fugitive",
     event = "VeryLazy",
-  },
-  -- Linting
-  {
-    "https://gitlab.com/schrieveslaach/sonarlint.nvim",
-    lazy = false,
+    config = function()
+      require("core.utils").load_mappings("git")
+    end,
   }
-
 }
 
 return plugins

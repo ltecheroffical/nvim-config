@@ -22,9 +22,23 @@ M.general = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
-      "Add breakpoint at line",
+    ["<leader>dbb"] = {
+      function ()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle breakpoint at line",
+    },
+    ["<leader>dbc"] = {
+      function ()
+        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end,
+      "Add condition breakpoint at line",
+    },
+    ["<leader>dbl"] = {
+      function ()
+        require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+      end,
+      "Add log breakpoint at line",
     },
     ["<leader>dr"] = {
       "<cmd> DapContinue <CR>",
@@ -36,7 +50,7 @@ M.dap = {
 M.dap_python = {
   plugin = true,
   n = {
-    ["<leader>dbr"] = {
+    ["<leader>dpr"] = {
       function()
         require("dap-python").test_method()
       end
@@ -61,6 +75,7 @@ M.lspconfig = {
 
 -- Git
 M.git = {
+  plugin = true,
   n = {
     ["<leader>gg"] = {
       function()
