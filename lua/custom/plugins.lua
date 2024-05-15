@@ -1,3 +1,4 @@
+-- TODO: 
 local plugins = {
   {
     "williamboman/mason.nvim",
@@ -144,7 +145,15 @@ local plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
-    end,
+    end
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "BufReadPost",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+
+    }
   }
 }
 
