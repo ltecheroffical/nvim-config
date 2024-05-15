@@ -32,7 +32,7 @@ local plugins = {
   },
   {
     "OmniSharp/omnisharp-vim",
-    event = "BufEnter",
+    ft = "cs",
   },
   -- Debugger
   {
@@ -113,6 +113,7 @@ local plugins = {
   -- Tmux
   {
     "christoomey/vim-tmux-navigator",
+    event = "VeryLazy",
     lazy = false,
   },
   -- Git
@@ -121,6 +122,28 @@ local plugins = {
     event = "VeryLazy",
     config = function()
       require("core.utils").load_mappings("git")
+    end,
+  },
+  -- Syntax
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    build = ":TSUpdate",
+    opts = function()
+      local nvchad_ts = require("plugins.configs.treesitter")
+      local local_ts = require("custom.configs.treesitter")
+
+      return vim.tbl_deep_extend(
+        "force",
+        nvchad_ts,
+        local_ts
+      )
+    end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "syntax")
+      require("nvim-treesitter.configs").setup(opts)
     end,
   }
 }
