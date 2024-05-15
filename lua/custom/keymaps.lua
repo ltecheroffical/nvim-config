@@ -53,7 +53,8 @@ M.dap_python = {
     ["<leader>dpr"] = {
       function()
         require("dap-python").test_method()
-      end
+      end,
+      "Start or continue the debugger",
     }
   }
 }
@@ -128,16 +129,6 @@ M.project = {
       ":!sh run_project.sh<CR>",
       "Run Project",
     }
-  }
-}
-
--- NvChad
-M.nvchad = {
-  n = {
-    ["<leader>rc"] = {
-      ":luafile ~/.config/nvim/init.lua<CR>",
-      "Reload config",
-    },
   }
 }
 

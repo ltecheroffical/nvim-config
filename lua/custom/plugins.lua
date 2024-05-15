@@ -85,7 +85,7 @@ local plugins = {
     opts = {
       handlers = {},
       ensure_installed = {
-        "lldb"
+        "codelldb"
       }
     }
   },
