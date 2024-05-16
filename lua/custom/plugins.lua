@@ -1,4 +1,3 @@
--- TODO: 
 local plugins = {
   {
     "williamboman/mason.nvim",
@@ -147,6 +146,7 @@ local plugins = {
       require("nvim-treesitter.configs").setup(opts)
     end
   },
+  -- Linting
   {
     "folke/todo-comments.nvim",
     event = "BufReadPost",
@@ -154,6 +154,11 @@ local plugins = {
     opts = {
 
     }
+  },
+  {
+    "davidbeckingsale/writegood.vim",
+    event = "VeryLazy",
+    cmd = { "WritegoodEnable", "WritegoodDisable", "WritegoodToggle" }
   }
 }
 
