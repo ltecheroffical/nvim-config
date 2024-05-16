@@ -156,9 +156,8 @@ local plugins = {
     }
   },
   {
-    "davidbeckingsale/writegood.vim",
+    "dpelle/vim-LanguageTool",
     event = "VeryLazy",
-    cmd = { "WritegoodEnable", "WritegoodDisable", "WritegoodToggle" }
   }
 }
 
