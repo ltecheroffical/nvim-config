@@ -1,9 +1,4 @@
 return {
-  -- Async
-  {
-    "nvim-neotest/nvim-nio",
-    lazy = false,
-  },
   -- Tmux
   {
     "christoomey/vim-tmux-navigator",
