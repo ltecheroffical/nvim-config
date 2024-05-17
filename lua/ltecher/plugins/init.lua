@@ -20,11 +20,15 @@ return {
     "stevearc/dressing.nvim",
     event = "VeryLazy"
   },
+  -- Startup
+  {
+    "dstein64/vim-startuptime"
+  },
   -- Theme
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
+    piority = 1000,
     config = function()
       vim.cmd.colorscheme "catppuccin-mocha"
     end,
