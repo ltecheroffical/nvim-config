@@ -10,11 +10,6 @@ return {
     event = "VeryLazy",
     lazy = false,
   },
-  -- Git
-  {
-    "tpope/vim-fugitive",
-    event = "VeryLazy",
-  }, 
   -- Keymaps
   {
     "folke/which-key.nvim",

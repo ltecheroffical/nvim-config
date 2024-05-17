@@ -28,7 +28,6 @@ return {
     lspconfig.jdtls.setup({})
 
 
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local keymap = vim.keymap
 
     vim.api.nvim_create_autocmd("LspAttach", {

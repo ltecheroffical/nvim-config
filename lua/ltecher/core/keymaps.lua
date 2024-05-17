@@ -16,16 +16,20 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close tab" })
 
 -- Line movement
-keymap.set("i", "<A-Down>", "<ESC>:m .+1<CR>==gi", { desc = "Move line down" })
-keymap.set("i", "<A-Up>", "<ESC>:m .-2<CR>==gi", { desc = "Move line up" })
-keymap.set("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down" })
-keymap.set("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up" })
+keymap.set("i", "<A-Down>", "<ESC>:m .+1<CR>==gi", { desc = "Move line down", silent = true })
+keymap.set("i", "<A-Up>", "<ESC>:m .-2<CR>==gi", { desc = "Move line up", silent = true })
+keymap.set("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
+keymap.set("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", silent = true })
 
 -- Tree
 keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 keymap.set("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Focus file explorer" })
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
+
+-- Tabs
+keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Next tab", silent = true })
+keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Previous tab", silent = true })
 
 -- Codeium
 keymap.set("n", "<C-o>", function() return vim.fn['codeium#Chat']() end, { expr = true, silent = true })
