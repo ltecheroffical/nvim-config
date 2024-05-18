@@ -12,6 +12,9 @@ keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save file" })
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
+-- Terminal
+keymap.set("t", "<ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 -- Tabs
 keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close tab" })
 
