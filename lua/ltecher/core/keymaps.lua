@@ -42,5 +42,6 @@ keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1
 keymap.set("i", "<C-x>", function() return vim.fn['codeium#Complete']() end, { expr = true, silent = true })
 
 -- Project
+keymap.set("n", "<S-C-b>", ":!sh build_project.sh<CR>", { desc = "Build project" })
 keymap.set("n", "<C-b>", ":!sh build_project.sh<CR>", { desc = "Build project" })
 keymap.set("n", "<F5>", ":!sh run_project.sh<CR>", { desc = "Run project" })
