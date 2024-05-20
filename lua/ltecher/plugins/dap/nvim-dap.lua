@@ -2,7 +2,6 @@ return {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",
   config = function ()
-    local dap = require('dap')
     local keymap = vim.keymap
 
     keymap.set("n", "<leader>dbb", function()
