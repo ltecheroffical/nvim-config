@@ -30,10 +30,6 @@ keymap.set("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Focus file exp
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
 
--- Tabs
-keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Next tab", silent = true })
-keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Previous tab", silent = true })
-
 -- Codeium
 keymap.set("n", "<C-o>", function() return vim.fn['codeium#Chat']() end, { expr = true, silent = true })
 keymap.set("i", "<C-g>", function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
