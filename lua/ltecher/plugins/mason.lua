@@ -29,6 +29,7 @@ return {
         "cmake",
         "tsserver",
         "lua_ls",
+        "omnisharp"
       }
     })
   end,

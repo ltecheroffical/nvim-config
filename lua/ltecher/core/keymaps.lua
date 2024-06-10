@@ -31,11 +31,7 @@ keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file
 keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
 
 -- Codeium
-keymap.set("n", "<C-o>", function() return vim.fn['codeium#Chat']() end, { expr = true, silent = true })
-keymap.set("i", "<C-g>", function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
-keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
-keymap.set("i", "<C-x>", function() return vim.fn['codeium#Complete']() end, { expr = true, silent = true })
+keymap.set("n", "<C-o>", "<cmd>Codeium Chat<CR>", { expr = true, silent = true })
 
 -- Project
 keymap.set("n", "<S-C-b>", ":!sh build_project.sh<CR>", { desc = "Build project" })
