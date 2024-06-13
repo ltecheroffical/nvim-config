@@ -21,6 +21,8 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
+        lspconfig.jdtls.setup({})
+
         local keymap = vim.keymap
 
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -92,6 +94,10 @@ return {
                     capabilities = capabilities,
                     cmd = { "omnisharp" }
                 })
+            end,
+
+            ["jdtls"] = function()
+                
             end,
         })
     end,
