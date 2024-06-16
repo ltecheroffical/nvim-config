@@ -15,9 +15,6 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 -- Terminal
 keymap.set("t", "<A-x>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- Tabs
-keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close tab" })
-
 -- Line movement
 keymap.set("i", "<A-Down>", "<ESC>:m .+1<CR>==gi", { desc = "Move line down", silent = true })
 keymap.set("i", "<A-Up>", "<ESC>:m .-2<CR>==gi", { desc = "Move line up", silent = true })
