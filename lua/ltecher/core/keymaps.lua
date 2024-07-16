@@ -20,3 +20,7 @@ keymap.set("i", "<A-Down>", "<ESC>:m .+1<CR>==gi", { desc = "Move line down", si
 keymap.set("i", "<A-Up>", "<ESC>:m .-2<CR>==gi", { desc = "Move line up", silent = true })
 keymap.set("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
 keymap.set("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", silent = true })
+
+-- Netrw
+keymap.set("n", "<leader>ee", ":Explore %:p:h<CR>", { desc = "Open Netrw in the current file's directory", silent = true })
+keymap.set("n", "<leader>ef", ":Explore<CR>", { desc = "Open Netrw in the CWD", silent = true })
