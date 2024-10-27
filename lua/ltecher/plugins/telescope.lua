@@ -21,6 +21,12 @@ return {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist
           }
+        },
+        file_ignore_patterns = {
+            "node_modules",
+
+
+            "thirdparty"
         }
       }
     })
