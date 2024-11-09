@@ -27,7 +27,7 @@ return {
         "pyright",
         "gopls",
         "cmake",
-        "tsp_server",
+        "ts_ls",
         "lua_ls",
         "omnisharp"
       }

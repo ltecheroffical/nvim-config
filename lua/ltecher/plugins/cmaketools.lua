@@ -1,7 +1,7 @@
 return {
     "Civitasv/cmake-tools.nvim",
     lazy = true,
-    cmd = { 
+    cmd = {
         "CMakeGenerate",
         "CMakeBuild",
         "CMakeBuildCurrentFile",
