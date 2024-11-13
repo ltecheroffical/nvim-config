@@ -13,9 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { import = "ltecher.plugins" },
+    { import = "ltecher.plugins.visual" },
 
     { import = "ltecher.plugins.lsp" },
-    { import = "ltecher.plugins.dap" }
+    { import = "ltecher.plugins.dap" },
+    { import = "ltecher.plugins.language_support" },
+
+    { import = "ltecher.plugins.git" }
   }, {
   checker = {
     enabled = true,
