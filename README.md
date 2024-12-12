@@ -1,17 +1,32 @@
 # Neovim Config
 This is my config I use daily in my neovim setup every day.
 
+Currently the goal is to turn this into a base config, this will make it easier to install
+and allow you to disable and enable things and install your plugins easily.
+
+## Dependencies
+>[!NOTE]
+> Currently, i've not got a full list, the plugins will either give you a warning 
+> when the program needed isn't installed or you will have to google it. Submit a PR or open an issue if you find anything.
+
+- `rustc`
+
+## Features
+>[!NOTE]
+> This List is incomplete
+
+- LSP
+- Autocompletion
+- Syntax highlighting
+- Lazy Package Manager
+- Markdown Preview
+
+## Warning
+This config has a lot of things that are being developed at this time, this config is not stable.
+
 ## Installation
 Just paste this into your terminal of choice:
 
-`git clone https://github.com/ltecheroffical/nvim-config && mv nvim-config ~/.config/nvim`
+`cd /tmp && git clone https://github.com/ltecheroffical/nvim-config && mv nvim-config ~/.config/nvim`
 
-## NvChad removal
-The reason for this is because i'd like to have freedom in these ways:
-    
-    - Licensing
-    - Configuration
-    - Startup time
-
-NvChad didn't give me every one of those, NvChad is still great
-for a base config but i'm switching to my own
+This installation is only for unix, if you want this config on windows, you should use `WSL`
