@@ -22,6 +22,9 @@ local default_config = {
     plugins = {
     },
 
+    extra_lualine_sections = {
+    },
+
     keymaps = {
         exit_insert_alt = "jk",
         clear_search = "<leader>nh",
