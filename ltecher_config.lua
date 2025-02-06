@@ -41,5 +41,15 @@ return {
     debuggers = {
         "lldb",
         "debugpy"
+    },
+    plugins = {
+        {
+            "jacob411/Ollama-Copilot",
+            keymaps = {
+                suggestion = "<C-a>",
+                reject = "<C-z>",
+                insert_accept = "<C-c>"
+            }
+        }
     }
 }
