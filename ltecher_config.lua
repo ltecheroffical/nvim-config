@@ -46,9 +46,9 @@ return {
         {
             "jacob411/Ollama-Copilot",
             keymaps = {
-                suggestion = "<C-a>",
-                reject = "<C-z>",
-                insert_accept = "<C-c>"
+                suggestion = "<leader>os",
+                reject = "<leader>or",
+                insert_accept = "<S-Tab>"
             }
         }
     }
