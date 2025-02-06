@@ -72,7 +72,8 @@ return {
 
             ---@type Ollama.Config
             opts = {
-                model = "deepseek-coder:1.3b"
+                model = "deepseek-coder:1.3b",
+                stream = true
             }
         }
     }
