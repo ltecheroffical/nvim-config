@@ -6,6 +6,8 @@ return {
 
         vim.opt.termguicolors = true
 
+        vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+
         require("nvim-tree").setup({
             sort = {
                 sorter = "case_sensitive",
