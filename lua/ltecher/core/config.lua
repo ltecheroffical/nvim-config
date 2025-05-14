@@ -1,7 +1,5 @@
 local user_config = require("config")
 local default_config = {
-    enable_codeium = false,
-
     misc = {
         enable_quickmath = false,
     },
@@ -40,10 +38,6 @@ local default_config = {
         -- Line movement
         move_line_up = "<A-Up>",
         move_line_down = "<A-Down>",
-
-        -- Netrw
-        open_netrw_current_file = "<leader>ee",
-        open_netrw_cwd = "<leader>ef",
 
         lsp = {
             show_references = "<leader>gr",

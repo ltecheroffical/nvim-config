@@ -1,9 +1,6 @@
 # Neovim Config
 This is my config I use daily in my neovim setup every day.
 
-Currently the goal is to turn this into a base config, this will make it easier to install
-and allow you to disable and enable things and install your plugins easily.
-
 ## Dependencies
 >[!NOTE]
 > Currently, i've not got a full list, the plugins will either give you a warning 
