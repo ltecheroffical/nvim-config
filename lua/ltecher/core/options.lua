@@ -5,10 +5,10 @@ opt.relativenumber = true
 opt.number = true
 
 -- Indentation
+opt.expandtab = false
 opt.tabstop = 4
-opt.softtabstop = 4
 opt.shiftwidth = 4
-opt.expandtab = true
+opt.softtabstop = 4
 opt.autoindent = true
 
 -- Wrapping
