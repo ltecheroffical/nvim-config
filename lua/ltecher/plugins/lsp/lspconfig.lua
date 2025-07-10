@@ -20,8 +20,6 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
-        lspconfig.jdtls.setup({})
-
         local keymap = vim.keymap
 
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -78,8 +76,6 @@ return {
             end
         }, {
             ["clangd"] = function()
-                local lspconfig = require("lspconfig")
-                local capabilities = require("cmp_nvim_lsp").default_capabilities()
                 lspconfig.clangd.setup({
                     capabilities = capabilities,
                     cmd = {
@@ -91,8 +87,6 @@ return {
             end,
 
             ["omnisharp"] = function()
-                local lspconfig = require("lspconfig")
-                local capabilities = require("cmp_nvim_lsp").default_capabilities()
                 lspconfig.omnisharp.setup({
                     capabilities = capabilities,
                     cmd = { "omnisharp" }

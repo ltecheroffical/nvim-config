@@ -28,7 +28,8 @@ return {
                 "cmake",
                 "ts_ls",
                 "lua_ls",
-                "omnisharp"
+                "omnisharp",
+				"svls",
             }
         })
     end,
