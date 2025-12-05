@@ -96,7 +96,5 @@ return {
             ["jdtls"] = function()
             end,
         })
-
-        mason_lspconfig.setup_handlers(lsp_config)
     end,
 }
