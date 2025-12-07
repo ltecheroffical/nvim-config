@@ -25,6 +25,11 @@ local conds_expand = require("luasnip.extras.conditions.expand")
 return {
 	s("iferr", fmt([[
 		if {} != nil {{
+			return {}
+		}}]], { i(1, "err"), rep(1) })
+	),
+	s("iferrv", fmt([[
+		if {} != nil {{
 			return {}, {}
 		}}]], { i(1, "err"), i(2, "nil"), rep(1) })
 	),
