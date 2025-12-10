@@ -1,3 +1,20 @@
+function env_debug()
+	local env = {}
+	local file = io.open(vim.fn.input("Enter .env file path: ", vim.fn.getcwd() .. "/.env"), "r")
+	if not file then return env end
+	for line in file:lines() do
+		local key, value = line:match("^%s*([%w_]+)%s*=%s*(.+)%s*$")
+		if key and value then
+			-- strip quotes if present
+			value = value:gsub('^"(.*)"$', '%1')
+			value = value:gsub("^'(.*)'$", '%1')
+			env[key] = value
+		end
+	end
+	file:close()
+	return env
+end
+
 return {
 	"leoluz/nvim-dap-go",
 	ft = "go",
@@ -26,6 +43,27 @@ return {
 				name = "Debug (Build Flags & Arguments)",
 				request = "launch",
 				program = "${file}",
+			},
+			{
+				type = "go",
+				name = "Debug (Environment)",
+				request = "launch",
+				program = "${file}",
+				env = env_debug,
+			},
+			{
+				type = "go",
+				name = "Debug (Arguments & Environment)",
+				request = "launch",
+				program = "${file}",
+				env = env_debug,
+			},
+			{
+				type = "go",
+				name = "Debug (Build Flags & Arguments & Environment)",
+				request = "launch",
+				program = "${file}",
+				env = env_debug,
 			},
 		},
 		delve = {
