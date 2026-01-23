@@ -1,4 +1,5 @@
 return {
+	{
   "kdheepak/lazygit.nvim",
   event = "VeryLazy",
   cmd = {
@@ -17,4 +18,5 @@ return {
   keys = {
     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
   },
+}
 }

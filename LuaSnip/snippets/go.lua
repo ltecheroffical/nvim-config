@@ -41,10 +41,10 @@ return {
 	),
 	s("iferrweb", fmt([[
 		if {} != nil {{
-			log.Println({})
+			{}.Println({})
 			http.Error({}, {}, http.StatusInternalServerError)
 			return
-		}}]], { i(1, "err"), rep(1), i(2, "w"), i(3, "http.StatusText(http.StatusInternalServerError)")})
+		}}]], { i(1, "err"), i(2, "log"), rep(1), i(3, "w"), i(4, "http.StatusText(http.StatusInternalServerError)")})
 	),
 	s("errfmt", fmt([[fmt.Errorf("{}: %s", {})]], { i(1, "msg"), i(2, "err")})),
 }

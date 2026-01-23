@@ -107,8 +107,14 @@ return {
 				}),
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered({
+					border = { "┌", "─", "┐", "│", "┘", "─", "╰", "│" },
+					winhighlight = "Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel"
+				}),
+				documentation = cmp.config.window.bordered({
+					border = { "┌", "─", "┐", "│", "┘", "─", "╰", "│" },
+					winhighlight = "Normal:CmpDoc,FloatBorder:CmpDocBorder"
+				}),
 			}
 		})
 	end,
