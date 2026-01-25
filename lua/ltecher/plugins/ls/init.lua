@@ -50,13 +50,13 @@ return {
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 			local lspconfig = require("lspconfig")
-			local mason_lspconfig = require("mason-lspconfig")
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 
 			mason.setup({
 				ensure_installed = {
 					"lldb",
 					"debugpy",
+					"prettier",
 				},
 				ui = {
 					icons = {
@@ -135,5 +135,37 @@ return {
 	{
 		"fatih/vim-go",
 		ft = "go",
+	},
+	{
+		'stevearc/conform.nvim',
+		config = function(_, opts)
+			require("conform").setup({
+				formatters_by_ft = {
+					javascript = { "prettier" },
+					javascriptreact = { "prettier" },
+					typescript = { "prettier" },
+					typescriptreact = { "prettier" },
+
+					html = { "prettier" },
+					css = { "prettier" },
+					scss = { "prettier" },
+					less = { "prettier" },
+
+					json = { "prettier" },
+					jsonc = { "prettier" },
+					yaml = { "prettier" },
+					markdown = { "prettier" },
+					graphql = { "prettier" },
+
+					svelte = { "prettier" },
+					vue = { "prettier" },
+					astro = { "prettier" },
+				},
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
+			})
+		end,
 	}
 }
