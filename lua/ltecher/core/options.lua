@@ -35,3 +35,6 @@ opt.splitbelow = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+
+-- 120 Column limit
+opt.colorcolumn = { 120 }
