@@ -82,4 +82,10 @@ return {
 			require("codesnap").setup(opts)
 		end
 	},
+	{
+		"famiu/bufdelete.nvim",
+		keys = {
+			{ "<leader>x", "<cmd>Bdelete<cr>", desc = "Close current buffer" },
+		}
+	}
 }
