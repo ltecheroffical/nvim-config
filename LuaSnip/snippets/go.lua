@@ -28,6 +28,11 @@ return {
 			return {}
 		}}]], { i(1, "err"), rep(1) })
 	),
+	s("errp", fmt([[
+		if {} != nil {{
+			panic({})
+		}}]], { i(1, "err"), rep(1) })
+	),
 	s("errv", fmt([[
 		if {} != nil {{
 			return {}, {}
