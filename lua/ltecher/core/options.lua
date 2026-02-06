@@ -38,3 +38,5 @@ opt.signcolumn = "yes"
 
 -- 120 Column limit
 opt.colorcolumn = { 120 }
+
+opt.autochdir = false

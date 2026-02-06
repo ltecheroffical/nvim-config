@@ -57,6 +57,8 @@ return {
 					"lldb",
 					"debugpy",
 					"prettier",
+					"gdtoolkit",
+					"netcoredbg",
 				},
 				ui = {
 					icons = {
@@ -74,7 +76,6 @@ return {
 					"cmake",
 					"ts_ls",
 					"lua_ls",
-					"omnisharp",
 					"svls",
 				},
 				handlers = vim.tbl_deep_extend("force", {
@@ -84,27 +85,27 @@ return {
 						})
 					end
 				}, {
-						["clangd"] = function()
-							lspconfig.clangd.setup({
-								capabilities = capabilities,
-								cmd = {
-									"clangd",
-									"--suggest-missing-includes",
-									"--header-insertion=never"
-								}
-							})
-						end,
+					["clangd"] = function()
+						lspconfig.clangd.setup({
+							capabilities = capabilities,
+							cmd = {
+								"clangd",
+								"--suggest-missing-includes",
+								"--header-insertion=never"
+							}
+						})
+					end,
 
-						["omnisharp"] = function()
-							lspconfig.omnisharp.setup({
-								capabilities = capabilities,
-								cmd = { "omnisharp" }
-							})
-						end,
+					["omnisharp"] = function()
+						lspconfig.omnisharp.setup({
+							capabilities = capabilities,
+							cmd = { "omnisharp" }
+						})
+					end,
 
-						["jdtls"] = function()
-						end,
-					})
+					["jdtls"] = function()
+					end,
+				})
 			})
 		end,
 	},
@@ -167,5 +168,17 @@ return {
 				},
 			})
 		end,
-	}
+	},
+	{
+		"Mathijs-Bakker/godotdev.nvim",
+		dependencies = { 'nvim-lspconfig', 'nvim-dap', 'nvim-dap-ui', 'nvim-treesitter' },
+		config = function()
+			require("godotdev").setup({
+				csharp = true,
+				editor_host = "127.0.0.1",
+				editor_port = 6005, -- Godot LSP port
+				debug_port = 6006,
+			})
+		end
+	},
 }

@@ -80,6 +80,7 @@ return {
 					ignore = false,
 					timeout = 400,
 				},
+				sync_root_with_cwd = true,
 			})
 		end,
 	},

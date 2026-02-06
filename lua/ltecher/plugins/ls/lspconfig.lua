@@ -1,21 +1,36 @@
 return {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
-        { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim", opts = {} }
-    },
-    config = function()
-        -- Change the Diagnostic symbols in the sign column (gutter)
-        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-        end
+	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+		{ "antosha417/nvim-lsp-file-operations", config = true },
+		{ "folke/neodev.nvim",                   opts = {} }
+	},
+	config = function()
+		-- Change the Diagnostic symbols in the sign column (gutter)
+		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		end
 
-		-- Then enable it
-		vim.lsp.enable("zenc")
+		vim.filetype.add({
+			extension = {
+				zc = "zenc",
+			}
+		})
+
+		vim.lsp.config("zenc", {
+			cmd = { "zc", "lsp" },
+			filetypes = { "zenc" },
+			root_dir = vim.loop.cwd(),
+			settings = {},
+		})
+		vim.lsp.enable("zenc", {
+			handlers = {
+				["textDocument/publishDiagnostics"] = function(...) end,
+			},
+		})
 
 		local keymap = vim.keymap
 
