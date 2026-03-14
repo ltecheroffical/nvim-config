@@ -15,6 +15,9 @@ return {
 
 			telescope.setup({
 				defaults = {
+					preview = {
+						treesitter = false,
+					},
 					path_display = { "smart" },
 					mappings = {
 						i = {
@@ -71,12 +74,8 @@ return {
 			"CodeSnapSaveHighlight",
 		},
 		opts = {
-			title = "",
-			has_line_number = true,
-
-
-			bg_theme = "sea",
-			watermark = ""
+			show_line_number = true,
+			watermark = "",
 		},
 		config = function(_, opts)
 			require("codesnap").setup(opts)

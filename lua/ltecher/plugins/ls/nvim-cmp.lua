@@ -22,7 +22,7 @@ return {
 							return "<Tab>"
 						end
 					end,
-					mode = {"i", "s"},
+					mode = { "i", "s" },
 					expr = true,
 					silent = true,
 				},
@@ -37,7 +37,7 @@ return {
 							return "<S-Tab>"
 						end
 					end,
-					mode = {"i", "s"},
+					mode = { "i", "s" },
 					expr = true,
 					silent = true,
 				},
@@ -50,14 +50,14 @@ return {
 							luasnip.change_choice(1)
 						end
 					end,
-					mode = {"i", "s"},
+					mode = { "i", "s" },
 					silent = true,
 				},
 			},
 		},
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
-		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"onsails/lspkind.nvim",   -- vs-code like pictograms
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -90,11 +90,10 @@ return {
 			-- sources for autocompletion
 
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp"},
+				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
-				{ name = "minuet" }, -- minuet ai
 			}),
 
 			-- configure lspkind for vs-code like pictograms in completion menu

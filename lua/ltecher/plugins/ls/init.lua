@@ -15,7 +15,7 @@ return {
 				"vim",
 				"c",
 				"c_sharp",
-
+				"rust",
 				"python",
 
 				-- Git
@@ -35,7 +35,7 @@ return {
 			indent = { enable = true },
 		},
 		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter").setup(opts)
 		end
 	},
 	{
@@ -55,8 +55,8 @@ return {
 			mason.setup({
 				ensure_installed = {
 					"lldb",
-					"debugpy",
 					"prettier",
+					"debugpy",
 					"gdtoolkit",
 					"netcoredbg",
 				},
@@ -77,6 +77,7 @@ return {
 					"ts_ls",
 					"lua_ls",
 					"svls",
+					"rust_analyzer",
 				},
 				handlers = vim.tbl_deep_extend("force", {
 					function(server_name)
@@ -104,6 +105,20 @@ return {
 					end,
 
 					["jdtls"] = function()
+					end,
+					["rust_analyzer"] = function()
+						lspconfig.rust_analyzer.setup({
+							settings = {
+								["rust-analyzer"] = {
+									cargo = { allFeatures = true },
+									checkOnSave = {
+										command = "clippy" -- optional: run clippy on save
+									},
+									procMacro = { enable = true },
+								}
+							},
+							root_markers = { { "Config.toml" }, ".git" },
+						})
 					end,
 				})
 			})

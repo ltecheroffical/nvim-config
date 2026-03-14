@@ -23,33 +23,33 @@ local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
 
 return {
-	s("err", fmt([[
+	s("perr", fmt([[
 		if {} != nil {{
 			return {}
 		}}]], { i(1, "err"), rep(1) })
 	),
-	s("errp", fmt([[
+	s("perrp", fmt([[
 		if {} != nil {{
 			panic({})
 		}}]], { i(1, "err"), rep(1) })
 	),
-	s("errv", fmt([[
+	s("perrv", fmt([[
 		if {} != nil {{
 			return {}, {}
 		}}]], { i(1, "err"), i(2, "nil"), rep(1) })
 	),
-	s("errbody", fmt([[
+	s("perrbody", fmt([[
 		if {} != nil {{
 			{}
 			return {}, {}
 		}}]], { i(1, "err"), i(2, "log.Println(err)"), i(3, "nil"), rep(1) })
 	),
-	s("errweb", fmt([[
+	s("perrweb", fmt([[
 		if {} != nil {{
 			{}.Println({})
 			http.Error({}, {}, http.StatusInternalServerError)
 			return
 		}}]], { i(1, "err"), i(2, "log"), rep(1), i(3, "w"), i(4, "http.StatusText(http.StatusInternalServerError)") })
 	),
-	s("errfmt", fmt([[fmt.Errorf("{}: %s", {})]], { i(1, "msg"), i(2, "err") })),
+	s("perrfmt", fmt([[fmt.Errorf("{}: %s", {})]], { i(1, "msg"), i(2, "err") })),
 }
