@@ -76,7 +76,6 @@ return {
 					"cmake",
 					"ts_ls",
 					"lua_ls",
-					"svls",
 					"rust_analyzer",
 				},
 				handlers = vim.tbl_deep_extend("force", {
@@ -195,5 +194,8 @@ return {
 				debug_port = 6006,
 			})
 		end
+	},
+	{
+		"zenc-lang/zenc.vim",
 	},
 }
