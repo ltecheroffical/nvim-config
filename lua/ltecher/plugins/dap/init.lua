@@ -9,31 +9,56 @@ return {
 		opts = {
 			handlers = {},
 			ensure_installed = {
-				"codelldb"
+				"codelldb",
+				"cppdbg",
 			}
 		}
 	},
 	{
 		"mfussenegger/nvim-dap",
 		event = "VeryLazy",
-		config = function ()
+		config = function()
 			local keymap = vim.keymap
+			local dap = require("dap")
+
+			local remote_gdb_config = {
+				name = "GDB Remote",
+				type = "cppdbg",
+				request = "launch",
+				cwd = "${workspaceFolder}",
+				program = function()
+					return vim.fn.input("Program: ", vim.fn.getcwd() .. "/", "file")
+				end,
+				MIMode = "gdb",
+				miDebuggerServerAddress = function()
+					return vim.fn.input("Server: ", "localhost:1234")
+				end
+
+			}
+
+			dap.configurations.c = {
+				remote_gdb_config,
+			}
+
+			dap.configurations.cpp = {
+				remote_gdb_config,
+			}
 
 			keymap.set("n", "<leader>dbb", function()
-				require("dap").toggle_breakpoint()
-			end,
+					dap.toggle_breakpoint()
+				end,
 				{ desc = "Debug Breakpoint" }
 			)
 
 			keymap.set("n", "<leader>dbc", function()
-				require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-			end,
+					dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+				end,
 				{ desc = "Add condition breakpoint" }
 			)
 
 			keymap.set("n", "<leader>dbl", function()
-				require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-			end,
+					dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+				end,
 				{ desc = "Add log point" }
 			)
 
@@ -44,7 +69,7 @@ return {
 		"rcarriga/nvim-dap-ui",
 		event = "VeryLazy",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-		config = function ()
+		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
 

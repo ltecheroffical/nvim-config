@@ -79,12 +79,19 @@ return {
 		},
 		config = function(_, opts)
 			require("codesnap").setup(opts)
-		end
+		end,
 	},
 	{
 		"famiu/bufdelete.nvim",
 		keys = {
 			{ "<leader>x", "<cmd>Bdelete<cr>", desc = "Close current buffer" },
-		}
+		},
+	},
+	{
+		'declancm/maximize.nvim',
+		config = true,
+		keys = {
+			{ "<leader>z", "<cmd>Maximize<cr>", desc = "Maximize window" },
+		},
 	}
 }
