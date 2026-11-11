@@ -1,1 +1,0 @@
-require("ltecher.project.commands")
